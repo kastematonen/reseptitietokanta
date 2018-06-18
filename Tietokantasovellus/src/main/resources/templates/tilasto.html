@@ -1,0 +1,28 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Reseptiarkisto - tilasto</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+
+        <h1>Raaka-ainetilasto</h1>
+        <p>Raaka-aine : reseptien lkm, joissa aine esiintyy</p>
+        <ul>
+            <li th:each="tilasto : ${tilastot}">
+                <span th:text="${tilasto.RaakaAine.nimi}">aine</span>
+                <span> : </span>
+                <span th:text="${tilasto.Lkm}">lkm</span>
+                
+            </li>
+        </ul>
+        
+        <ul>
+            <li><a href="index.html">Aloitussivulle</a></li>
+        </ul>
+        
+        
+    </body>
+</html>

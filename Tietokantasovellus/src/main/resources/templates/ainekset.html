@@ -1,0 +1,36 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Reseptiarkisto - raaka-aineet</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+
+        <h1>Raaka-aineet</h1>
+        
+        <ul>
+            <li th:each="aines : ${ainekset}">
+                <span th:text="${aines.nimi}">aineksen nimi</span>
+                
+                <form method="POST" th:action="@{~/ainekset/{ainesId}/delete(ainesId=${aines.id})}"><input type="submit" value="Poista"/></form>
+            </li>
+        </ul>
+        
+        <h2>Luo uusi raaka-aine:</h2>
+        
+        <p>Uuden raaka-aineen luominen onnistuu vain, jos sen nimi ei ole jo varattu toiselle raaka-aineelle.</p>
+        <p>Reseptikohtaisten raaka-aineiden ja ohjeiden muokkaaminen reseptikohtaisella sivulla.</p>
+        
+        <form method="POST" action="/ainekset.html">
+            <span>Raaka-aineen nimi:</span><br/>
+            <input type="text" name="nimi"/><br/>
+            <input type="submit" value="Luo raaka-aine"/>
+        </form>
+        
+        <ul>
+            <li><a href="index.html">Aloitussivulle</a></li>
+        </ul>
+    </body>
+</html>
